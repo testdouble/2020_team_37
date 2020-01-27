@@ -1,4 +1,5 @@
 require 'json'
+require 'mother'
 
 module Client
   TEAM_ID = 37
@@ -32,8 +33,8 @@ module Client
       wait
 
       response = `#{url}`
-      JSON.parse(response).tap do |json|
-        raise json["error"] if json["error"]
+      Mother.create(JSON.parse(response)).tap do |json|
+        raise json.error if json.error
       end
     end
 
