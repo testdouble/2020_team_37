@@ -9,19 +9,13 @@ module Client
       command "curl --silent -H 'team: #{TEAM_ID}' #{API_URL}/player"
     end
 
-    def create_player(args)
-      name           = args[:name]
-      water_stat     = args[:water_stat]
-      food_stat      = args[:food_stat]
-      stamina_stat   = args[:stamina_stat]
-      strength_stat  = args[:strength_stat]
-
+    def create_player(player)
       data = [
-        "player[name]=#{name}",
-        "player[water_stat]=#{water_stat}",
-        "player[food_stat]=#{food_stat}",
-        "player[stamina_stat]=#{stamina_stat}",
-        "player[strength_stat]=#{strength_stat}"
+        "player[name]=#{player.name}",
+        "player[water_stat]=#{player.water_stat}",
+        "player[food_stat]=#{player.food_stat}",
+        "player[stamina_stat]=#{player.stamina_stat}",
+        "player[strength_stat]=#{player.strength_stat}"
       ].join('&')
       command "curl --silent -H 'team: #{TEAM_ID}' -d '#{data}' #{API_URL}/players"
     end
