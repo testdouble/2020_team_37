@@ -9,8 +9,13 @@ module Client
       command "curl --silent -H 'team: #{TEAM_ID}' #{API_URL}/player"
     end
 
-    def create_player(name, water_stat, food_stat, stamina_stat, strength_stat)
-      # players?player[name]=Jim&player[water_stat]=5&player[food_stat]=5&player[stamina_stat]=2&player[strength_stat]=5
+    def create_player(args)
+      name           = args[:name]
+      water_stat     = args[:water_stat]
+      food_stat      = args[:food_stat]
+      stamina_stat   = args[:stamina_stat]
+      strength_stat  = args[:strength_stat]
+
       data = [
         "player[name]=#{name}",
         "player[water_stat]=#{water_stat}",
