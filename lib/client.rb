@@ -22,7 +22,7 @@ module Client
     end
 
     def move(direction)
-      possible_moves = %w[ NORTH EAST SOUTH WEST ]
+      possible_moves = %i[ NORTH EAST SOUTH WEST ]
       raise "Invalid direction!" unless possible_moves.include?(direction)
       command "curl --silent -H 'team: #{TEAM_ID}' -d 'direction=#{direction}' #{API_URL}/moves"
     end
