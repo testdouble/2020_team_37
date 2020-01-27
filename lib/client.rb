@@ -39,7 +39,7 @@ module Client
     end
 
     def wait
-      sleep 0.2
+      sleep 1
     end
   end
 end
